@@ -16,12 +16,17 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("$rootProject.projectDir.path\\${!props.isEmpty() ? props.getProperty("signingKeyFile") : System.getenv("SIGNING_KEY_FILE")}")
+            storeFile file("$rootProject.projectDir.path/${!props.isEmpty() ? props.getProperty ("signingKeyFile") : System.getenv("SIGNING_KEY_FILE")}")
             keyAlias !props.isEmpty() ? props.getProperty("keyAlias") : System.getenv("KEY_ALIAS")
             storePassword !props.isEmpty() ? props.getProperty("storePassword") : System.getenv ("STORE_PASSWORD")
             keyPassword !props.isEmpty() ? props.getProperty("keyPassword") : System.getenv("KEY_PASSWORD")
         }
     }
+
+    println signingConfigs.release.storeFile
+    println signingConfigs.release.keyAlias
+    println signingConfigs.release.storePassword
+    println signingConfigs.release.keyPassword
 
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -84,9 +89,9 @@ android {
     applicationVariants.all { variant ->
         task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
             description "Generates Javadoc for $variant.name."
-            source = variant.javaCompile.source
+            source = variant.javaCompiler.source
             ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
-            classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+            classpath = files(variant.javaCompiler.classpath.files) + files(ext.androidJar)
             options.links("http://docs.oracle.com/javase/7/docs/api/")
             options.links("http://d.android.com/reference/")
         }
