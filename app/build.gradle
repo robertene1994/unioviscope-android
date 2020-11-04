@@ -1,0 +1,168 @@
+apply plugin: 'com.android.application'
+
+android {
+    lintOptions {
+        disable 'GradleDependency', 'GradleCompatible'
+        ignore 'InvalidPackage'
+    }
+
+    // Load local properties file
+    def props = new Properties()
+    try {
+        props.load(project.rootProject.file("local.properties").newDataInputStream())
+    } catch (ignored) {
+        println 'Local properties file not found. Using environment variables.'
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("$rootProject.projectDir.path\\${!props.isEmpty() ? props.getProperty("signingKeyFile") : System.getenv("SIGNING_KEY_FILE")}")
+            keyAlias !props.isEmpty() ? props.getProperty("keyAlias") : System.getenv("KEY_ALIAS")
+            storePassword !props.isEmpty() ? props.getProperty("storePassword") : System.getenv ("STORE_PASSWORD")
+            keyPassword !props.isEmpty() ? props.getProperty("keyPassword") : System.getenv("KEY_PASSWORD")
+        }
+    }
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.robert.android.unioviscope"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+        archivesBaseName = "UniOviSCOPE"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+		
+		// Development Endpoint (localhost)
+        buildConfigField('String', 'UNIOVISCOPE_API', '"http://127.0.0.1:8080/"')
+		
+		// Testing endpoint
+        buildConfigField('String', 'UNIOVISCOPE_API_TEST', '"/test/"')
+    }
+
+    testOptions {
+        unitTests {
+            returnDefaultValues = true
+        }
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+
+        debugEmulator {
+            debuggable = true
+            testCoverageEnabled true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+
+            // Development Endpoint (localhost alternative for Android Emulator (AVD))
+            buildConfigField('String', 'UNIOVISCOPE_API', '"http://10.0.2.2:8080/"')
+            signingConfig signingConfigs.debug
+        }
+
+        releaseHeroku {
+            testCoverageEnabled false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+
+            // Production Endpoint (Heroku)
+            buildConfigField('String', 'UNIOVISCOPE_API', '"https://unioviscope-back-end.herokuapp.com/"')
+            signingConfig signingConfigs.release
+        }
+    }
+
+    applicationVariants.all { variant ->
+        task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
+            description "Generates Javadoc for $variant.name."
+            source = variant.javaCompile.source
+            ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+            classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+            options.links("http://docs.oracle.com/javase/7/docs/api/")
+            options.links("http://d.android.com/reference/")
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support:support-v4:$supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+
+    // Android Annotations
+    annotationProcessor "org.androidannotations:androidannotations:$androidAnnotationsVersion"
+    implementation "org.androidannotations:androidannotations-api:$androidAnnotationsVersion"
+
+    // Local Unit Tests
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttpMockVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+
+    // Android Unit Tests
+    androidTestImplementation "junit:junit:$junitVersion"
+
+    // Networking
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit-mock:$retrofitVersion"
+
+    // GSon
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // QR code
+    implementation group: 'com.google.zxing', name: 'core', version: "$zxingVersion"
+    implementation "com.journeyapps:zxing-android-embedded:$zxingEmbeddedVersion"
+    implementation "com.github.bumptech.glide:glide:$bumptechVersion"
+
+    // Google Play Services (Vision)
+    implementation "com.google.android.gms:play-services-vision:$googlePlayServicesVersion"
+
+    // JWT
+    implementation "io.jsonwebtoken:jjwt:$jwtVersion"
+    implementation "com.auth0.android:jwtdecode:$auth0Version"
+
+    // Resolve conflicts between main and test APK
+    androidTestImplementation "com.android.support:support-annotations:$supportLibraryVersion"
+    androidTestImplementation "com.android.support:support-v4:$supportLibraryVersion"
+    androidTestImplementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    androidTestImplementation "com.android.support:design:$supportLibraryVersion"
+}
+
+task javadoc(type: Javadoc) {
+    def excludes = ['**/R.class', '**/R$*.class', '**/BuildConfig.*',
+                    '**/Manifest*.*', 'android/**/*.*', '**/*$[0-9].*']
+    source = files([fileTree(dir: "$projectDir/src/main/java", excludes: excludes)])
+    destinationDir = file("$buildDir/javadoc")
+    options.linkSource true
+    classpath += project.files(project.android.getBootClasspath().join(File.pathSeparator))
+    failOnError false
+}
+
+afterEvaluate {
+    javadoc.classpath += files(android.applicationVariants.collect { variant ->
+        variant.javaCompiler.classpath.files
+    })
+}

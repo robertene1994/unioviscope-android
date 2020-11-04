@@ -1,0 +1,27 @@
+<resources>
+    <style name="UniOviScopeTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryText</item>
+
+        <item name="toolbarNavigationButtonStyle">@color/colorPrimary</item>
+    </style>
+
+    <style name="UniOviScopeTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="UniOviScopeTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="UniOviScopeTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="UniOviScopeTheme.TabLayout" parent="Base.Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TabLayoutText</item>
+    </style>
+
+    <style name="TabLayoutText" parent="TextAppearance.AppCompat.Button">
+        <!--<item name="android:textSize">8sp</item>-->
+    </style>
+</resources>
