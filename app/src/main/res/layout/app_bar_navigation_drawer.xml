@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.robert.android.unioviscope.presentation.ui.activities.CertifyAttendanceActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/UniOviScopeTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:paddingLeft="15dp"
+            app:contentInsetLeft="10dp"
+            app:contentInsetStart="10dp"
+            app:contentInsetStartWithNavigation="10dp"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:navigationIcon="@drawable/ic_drawer"
+            app:popupTheme="@style/UniOviScopeTheme.PopupOverlay"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include
+        layout="@layout/fragment_subjects"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <include
+        android:id="@+id/progressBarLayout"
+        layout="@layout/progress_bar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"/>
+
+</android.support.design.widget.CoordinatorLayout>

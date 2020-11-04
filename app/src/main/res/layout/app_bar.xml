@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/appbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/UniOviScopeTheme.AppBarOverlay">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:paddingLeft="15dp"
+        app:contentInsetLeft="10dp"
+        app:contentInsetStart="10dp"
+        app:contentInsetStartWithNavigation="10dp"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:navigationIcon="@mipmap/ic_launcher"
+        app:popupTheme="@style/UniOviScopeTheme.PopupOverlay">
+
+    </android.support.v7.widget.Toolbar>
+
+</android.support.design.widget.AppBarLayout>

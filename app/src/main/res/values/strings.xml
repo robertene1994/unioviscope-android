@@ -1,0 +1,110 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">UniOviSCOPE</string>
+
+    <string name="cont_desc_login">El logo de la aplicación</string>
+
+    <string name="hint_username">Usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_login">Iniciar Sesión</string>
+
+    <string name="msg_userName_required">¡El usuario es obligatorio!</string>
+    <string name="msg_password_required">¡La contraseña es obligatoria!</string>
+
+    <string name="msg_no_internet_connection" tools:ignore="Typos">¡No hay conexión a Internet en
+        este momento!</string>
+    <string name="msg_service_not_avabile" tools:ignore="Typos">¡El servicio no está disponible
+        en este momento!</string>
+
+    <string name="msg_camera_permission">¡Para continuar, se necesitan permisos para la
+        cámara!</string>
+    <string name="msg_invalid_userName_or_password">¡Usuario o contraseña inválidos!</string>
+    <string name="msg_expired_session">¡La sesión ha caducado! ¡Por favor, vuelva a iniciar
+        sesión!</string>
+    <string name="msg_only_students_allowed">¡Solo se permite el acceso a los estudiantes!</string>
+
+    <string name="msg_prepare_take_photo_error">¡Ha ocurrido un error inesperado al preparar la
+        captura de la foto!</string>
+
+    <string name="msg_qrcode_prompt">¡Escanee el código QR para confirmar su asistencia!</string>
+    <string name="msg_invalid_qrcode">¡El código QR escaneado es inválido o ha caducado!</string>
+    <string name="msg_process_photo_error">Ha ocurrido un error inesperado mientras se procesaba
+        la foto</string>
+
+    <string name="btn_retry_dialog">Reintentar</string>
+    <string name="btn_cancel_dialog">Cancelar</string>
+
+    <string name="msg_no_face_detected">¡No se ha detectado ningún rostro! ¡Por favor, pruebe de
+        nuevo!</string>
+    <string name="msg_more_than_one_face_detected">¡Se ha detectado más de un rostro! ¡Por favor,
+        pruebe de nuevo!</string>
+
+    <string name="msg_face_detector_not_avabile" tools:ignore="Typos">El detector facial no está
+        disponible en este momento! ¡Por favor, pruebe de nuevo!</string>
+
+    <string name="msg_certify_attendance_process_failed">¡Proceso de confirmación de asistencia no
+        superado! ¡Usted ya ha confirmado la asistencia para esta sesión!</string>
+    <string name="msg_certify_attendance_error">¡Ha ocurrido un error inesperado durante la
+        certificación de la asistencia!</string>
+    <string name="msg_confirmed_attendance">¡La asistencia ha sido confirmada!</string>
+
+    <string name="tab_title_theory">Teoría</string>
+    <string name="tab_title_practice">Prácticas</string>
+    <string name="tab_title_seminar">Seminarios</string>
+    <string name="tab_title_group_tutorship">Tutorías Grupales</string>
+
+    <string name="navigation_drawer_open">Abrir el menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar el menú de navegación</string>
+
+    <string name="cont_desc_logged_account">El logo para el usuario que ha iniciado sesión</string>
+
+    <string name="nav_user_email">%1$s@uniovi.es</string>
+
+    <string name="nav_certify_presence">Certificar Presencia</string>
+    <string name="nav_review_attendances">Revisar Asistencias</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="nav_logout">Cerrar Sesión</string>
+
+    <string name="cont_desc_face_recognition_logo">Logo para la preferencia del proceso de
+        reconocimiento facial</string>
+    <string name="pref_face_recognition">Reconocimiento Facial</string>
+    <string name="pref_face_recognition_description">Desactivar el reconocimiento facial para el
+        proceso de certificación de asistencia (el docente será notificado)</string>
+
+    <string name="cont_desc_home_screen_logo">Logo para la preferencia de la pantalla inicial</string>
+    <string name="pref_home_screen">Pantalla Inicial</string>
+    <string name="pref_home_screen_description">Activar el proceso de certificación de asistencia
+        como pantalla inicial de la aplicación</string>
+
+    <string name="cont_desc_language_logo">Logo para la preferencia del idioma de la
+        aplicación</string>
+    <string name="pref_language">Idioma</string>
+    <string name="pref_language_description">Cambiar el idioma de la aplicación</string>
+
+    <string name="cont_desc_progress_bar_logo">Logo para la barra de progreso</string>
+
+    <string name="msg_no_enrolled_subjects">No se encuentra matriculado en ninguna asignatura para
+        el presente curso académico</string>
+    <string name="msg_no_sheduled_theory_sessions">No hay sesiones de teoría planificadas para la
+        asignatura seleccionada</string>
+    <string name="msg_no_sheduled_practice_sessions">No hay sesiones de prácticas planificadas
+        para la asignatura seleccionada</string>
+    <string name="msg_no_sheduled_seminar_sessions">No hay sesiones de seminarios planificadas
+        para la asignatura seleccionada</string>
+    <string name="msg_no_sheduled_group_tutorship_sessions">No hay sesiones de tutorías grupales
+        planificadas para la asignatura seleccionada</string>
+
+    <string name="pref_language_spanish">Español</string>
+    <string name="pref_language_english">Inglés</string>
+
+    <string name="session_start_date_format">dd-MM-yyyy / HH:mm</string>
+    <string name="session_end_date_format">HH:mm</string>
+
+    <string-array name="pref_language_titles">
+        <item>@string/pref_language_spanish</item>
+        <item>@string/pref_language_english</item>
+    </string-array>
+    <string-array name="pref_language_values" tools:ignore="MissingTranslation">
+        <item>es_ES</item>
+        <item>en</item>
+    </string-array>
+</resources>

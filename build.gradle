@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://raw.github.com/embarkmobile/zxing-android-minimal/mvn-repo/maven-repository/"
+        }
+    }
+    dependencies {
+        //noinspection GradleDependency
+        classpath 'com.android.tools.build:gradle:3.1.2'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://raw.github.com/embarkmobile/zxing-android-minimal/mvn-repo/maven-repository/"
+        }
+    }
+}
+
+ext {
+    minSdkVersion = 26
+    targetSdkVersion = 27
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.3'
+
+    // Android
+    supportLibraryVersion = '25.3.1'
+    constraintLayoutVersion = '1.0.2'
+
+    // Android Annotations
+    androidAnnotationsVersion = '4.2.0'
+
+    // Local unit tests
+    junitVersion = '4.12'
+    mockitoVersion = '2.8.9'
+    okhttpMockVersion = '3.8.0'
+    robolectricVersion = '3.3.2'
+
+    // Android networking
+    retrofitVersion = '2.3.0'
+
+    // GSon
+    gsonVersion = '2.7'
+
+    // QR code
+    zxingVersion = '3.3.0'
+    zxingEmbeddedVersion = '3.5.0'
+    bumptechVersion = '3.7.0'
+
+    // Google Play Services (Vision)
+    googlePlayServicesVersion = '10.2.6'
+
+    // JWT
+    jwtVersion = '0.7.0'
+    auth0Version = '1.1.1'
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">UniOviSCOPE</string>
+
+    <string name="cont_desc_login">App\'s logo</string>
+
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+
+    <string name="msg_userName_required">Username is required!</string>
+    <string name="msg_password_required">Password is required!</string>
+
+    <string name="msg_no_internet_connection">No Internet connection at the moment!</string>
+    <string name="msg_service_not_avabile">Service not available at the moment!</string>
+
+    <string name="msg_camera_permission">To continue, camera permissions are required!</string>
+    <string name="msg_invalid_userName_or_password">Username or password are invalid!</string>
+    <string name="msg_expired_session">The session has expired! Please, log in again!</string>
+    <string name="msg_only_students_allowed">Only students are allowed access!</string>
+
+    <string name="msg_prepare_take_photo_error">Unexpected error occurred while preparing photo
+        shot</string>
+
+    <string name="msg_qrcode_prompt">Scan QR code to confirm attendance!</string>
+    <string name="msg_invalid_qrcode">Scanned QR code is invalid or expired!</string>
+    <string name="msg_process_photo_error">Unexpected error occurred while processing photo</string>
+
+    <string name="btn_retry_dialog">Retry</string>
+    <string name="btn_cancel_dialog">Cancel</string>
+
+    <string name="msg_no_face_detected">No face detected! Please, try again!</string>
+    <string name="msg_more_than_one_face_detected">More than one face has been detected! Please,
+        try again!</string>
+
+    <string name="msg_face_detector_not_avabile">Face detector is not available at the moment!
+        Please try again!</string>
+
+    <string name="msg_certify_attendance_process_failed">Unsuccessful attendance process! You
+        have already confirmed attendance for this session!</string>
+    <string name="msg_certify_attendance_error">Unexpected error occurred while certifying
+        attendance</string>
+    <string name="msg_confirmed_attendance">The attendance has been confirmed!</string>
+
+    <string name="tab_title_theory">Theory</string>
+    <string name="tab_title_practice">Practice</string>
+    <string name="tab_title_seminar">Seminar</string>
+    <string name="tab_title_group_tutorship">Group Tutorship</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="cont_desc_logged_account">Logo for logged user</string>
+
+    <string name="nav_user_email">%1$s@uniovi.es</string>
+
+    <string name="nav_review_attendances">Review Attendances</string>
+    <string name="nav_certify_presence">Certify Presence</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_logout">Logout</string>
+
+    <string name="cont_desc_face_recognition_logo">Face recognition process preference logo</string>
+    <string name="pref_face_recognition">Facial Recognition</string>
+    <string name="pref_face_recognition_description">Disable facial recognition for attendance
+        certification process (teacher will be notified)</string>
+
+    <string name="cont_desc_home_screen_logo">Home screen preference logo</string>
+    <string name="pref_home_screen">Home Screen</string>
+    <string name="pref_home_screen_description">Activate attendance certification process as the
+        application\'s home screen</string>
+
+    <string name="cont_desc_language_logo">Language preference logo</string>
+    <string name="pref_language">Language</string>
+    <string name="pref_language_description">Change application language</string>
+
+    <string name="cont_desc_progress_bar_logo">Progress bar logo</string>
+
+    <string name="msg_no_enrolled_subjects">You are not enrolled in any subject for current
+        course</string>
+    <string name="msg_no_sheduled_theory_sessions">No theory sessions scheduled for the selected
+        subject</string>
+    <string name="msg_no_sheduled_practice_sessions">No practice sessions scheduled for the
+        selected subject</string>
+    <string name="msg_no_sheduled_seminar_sessions">No seminar sessions scheduled for the
+        selected subject</string>
+    <string name="msg_no_sheduled_group_tutorship_sessions">No group tutorship sessions scheduled
+        for the selected subject</string>
+
+    <string name="pref_language_spanish">Spanish</string>
+    <string name="pref_language_english">English</string>
+
+    <string name="session_start_date_format">dd-MM-yyyy / HH:mm</string>
+    <string name="session_end_date_format">HH:mm</string>
+</resources>
