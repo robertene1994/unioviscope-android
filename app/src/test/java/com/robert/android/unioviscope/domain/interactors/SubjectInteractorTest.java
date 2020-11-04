@@ -47,7 +47,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class SubjectInteractorTest {
 
-    private static final Integer SERVER_PORT = 1000;
+    private static final Integer SERVER_PORT = 64395;
     private static final Long RESPONSE_TIMEOUT = 3000L;
 
     @Mock
