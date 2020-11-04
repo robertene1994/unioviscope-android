@@ -21,7 +21,7 @@ jobs:
           echo "$SIGNING_KEY" | base64 --decode > "$SIGNING_KEY_FILE"
           ls -la
           ls -la keystore
-          cat keystore/unioviscope.keystore
+          ./gradlew assemble
         env:
           SIGNING_KEY_FILE: ${{ secrets.SIGNING_KEY_FILE }}
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
