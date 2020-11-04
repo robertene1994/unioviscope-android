@@ -253,3 +253,12 @@ H
 .github/workflows/ci.yml,8\9\899ce9c202bf7bb5480e72836c3edc773c9c4244
 H
 .github/workflows/cd.yml,a\9\a97e66ccf489d6fda94e7140ede20bb519e64593
+X
+(keystore/unioviscope.keystore.base64.txt,a\c\acfa303c77a0299e21d4b0385f5c4071da8494c2
+@
+keystore/CMD.txt,8\a\8af065530f967791d1839200f25feed55748f302
+G
+UniOviSCOPE-Android.iml,8\4\84009b20f9d1f1058cfe75077bca969641e8809a
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
