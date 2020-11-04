@@ -19,8 +19,6 @@ jobs:
         run: |
           mkdir keystore
           echo "$SIGNING_KEY" | base64 --decode > "$SIGNING_KEY_FILE"
-          ls -la
-          ls -la keystore
           ./gradlew assemble
         env:
           SIGNING_KEY_FILE: ${{ secrets.SIGNING_KEY_FILE }}
