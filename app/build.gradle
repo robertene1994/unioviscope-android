@@ -63,10 +63,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+            signingConfig signingConfigs.debug
 
             // Development Endpoint (localhost alternative for Android Emulator (AVD))
             buildConfigField('String', 'UNIOVISCOPE_API', '"http://10.0.2.2:8080/"')
-            signingConfig signingConfigs.debug
         }
 
         releaseHeroku {
@@ -74,10 +74,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+            signingConfig signingConfigs.release
 
             // Production Endpoint (Heroku)
             buildConfigField('String', 'UNIOVISCOPE_API', '"https://unioviscope-back-end.herokuapp.com/"')
-            signingConfig signingConfigs.release
         }
     }
 
