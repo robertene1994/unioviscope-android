@@ -8,7 +8,7 @@
 	<img src="https://forthebadge.com/images/badges/uses-git.svg"/>
 </h4>
 
-### This is a Java application for attendance control (my degree's thesis) built for Android. The Web application is available at [UniOviSCOPE](https://unioviscope-web.herokuapp.com).
+### This is a [Java](https://www.java.com) application for attendance control (my degree's thesis) built for [Android](https://www.android.com/). The Web application is available at [UniOviSCOPE](https://unioviscope-web.herokuapp.com).
 
 #### CI/CD ☁
 
