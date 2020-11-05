@@ -23,11 +23,6 @@ android {
         }
     }
 
-    println signingConfigs.release.storeFile
-    println signingConfigs.release.keyAlias
-    println signingConfigs.release.storePassword
-    println signingConfigs.release.keyPassword
-
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
@@ -83,17 +78,6 @@ android {
 
             // Production Endpoint (Heroku)
             buildConfigField('String', 'UNIOVISCOPE_API', '"https://unioviscope-back-end.herokuapp.com/"')
-        }
-    }
-
-    applicationVariants.all { variant ->
-        task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
-            description "Generates Javadoc for $variant.name."
-            source = variant.javaCompiler.source
-            ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
-            classpath = files(variant.javaCompiler.classpath.files) + files(ext.androidJar)
-            options.links("http://docs.oracle.com/javase/7/docs/api/")
-            options.links("http://d.android.com/reference/")
         }
     }
 
@@ -161,9 +145,14 @@ task javadoc(type: Javadoc) {
                     '**/Manifest*.*', 'android/**/*.*', '**/*$[0-9].*']
     source = files([fileTree(dir: "$projectDir/src/main/java", excludes: excludes)])
     destinationDir = file("$buildDir/javadoc")
-    options.linkSource true
     classpath += project.files(project.android.getBootClasspath().join(File.pathSeparator))
     failOnError false
+    options {
+        addStringOption('Xdoclint:none', '-quiet')
+        docTitle 'UniOviSCOPE'
+        windowTitle 'UniOviSCOPE'
+        linkSource true
+    }
 }
 
 afterEvaluate {
